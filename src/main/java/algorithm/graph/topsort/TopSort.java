@@ -9,22 +9,6 @@ import java.util.concurrent.LinkedBlockingQueue;
  * Topological Sort Algorithm
  */
 public class TopSort {
-    public static void main(String[] args) throws CycleFoundException {
-        TopSort topSort = new TopSort();
-
-        //import the graph from file
-        String graphFileName = "algorithm/graph/topsort/topSortGraph.txt";
-        Graph graph = Graph.createGraphFromFile(TopSort.class.getResource("/").getPath() + File.separator +
-                graphFileName);
-
-        System.out.println("===================Graph before topological sort====================");
-        graph.printGraph();
-
-        //sort
-        topSort(graph);
-        System.out.println("===================Graph after topological sort====================");
-        graph.printGraph();
-    }
 
     /**
      * Do topological sort for the graph, and store the sorting result for each vertex in Vertex.sortNum.
