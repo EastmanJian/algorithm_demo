@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.*;
 
+/**
+ * Represent a graph using a map in which the key is the vertex name and the value is a Vertex and each Vertex object
+ * keeps a list of adjacent vertices.
+ */
 public class Graph {
-    public static final int INFINITY = Integer.MAX_VALUE;
-
     // Maps vertices to internal Vertex. Use TreeMap to sort the vertexName
     private TreeMap<String, Vertex> vertexMap = new TreeMap<>();
 
@@ -60,6 +62,11 @@ public class Graph {
     }
 
 
+    /**
+     * Create the graph by reading a file. Each line in the file represent an edge by two vertices, separated by space.
+     * @param fileName - the file represent the graph
+     * @return - the graph
+     */
     static public Graph createGraphFromFile(String fileName) {
         Graph g = new Graph();
         try {
