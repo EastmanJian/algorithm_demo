@@ -1,0 +1,94 @@
+package algorithm.graph.topsort;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.*;
+
+public class Graph {
+    public static final int INFINITY = Integer.MAX_VALUE;
+
+    // Maps vertices to internal Vertex. Use TreeMap to sort the vertexName
+    private TreeMap<String, Vertex> vertexMap = new TreeMap<>();
+
+    public TreeMap<String, Vertex> getVertexMap() {
+        return vertexMap;
+    }
+
+    public void addEdge(String sourceName, String destName) {
+        Vertex v = getVertex(sourceName);
+        Vertex w = getVertex(destName);
+        v.getAdj().add(w);
+    }
+
+
+    // If vertexName is not present, add it to vertexMap.
+    // In either case, return the Vertex.
+    public Vertex getVertex(String vertexName) {
+        Vertex v = vertexMap.get(vertexName);
+        if (v == null) {
+            v = new Vertex(vertexName);
+            vertexMap.put(vertexName, v);
+        }
+        return v;
+    }
+
+    public void printGraph() {
+        Set<String> vertexMapKeys = vertexMap.keySet();
+        Vertex v;
+        for (String vertexName: vertexMapKeys) {
+            v = vertexMap.get(vertexName);
+            System.out.print(vertexName + ": indegree=" + v.getIndegree() + ", sortNum=" + v.getSortNum() + ", adjacency=");
+            for (Vertex w: v.getAdj()) {
+                System.out.print(w.getName() + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void calculateIndegree() {
+        Set<String> vertexMapKeys = vertexMap.keySet();
+        //reset all indegree to zero
+        for (String vertexName: vertexMapKeys)
+            vertexMap.get(vertexName).setIndegree(0);
+        //calculate the indegree for each vertex by its adjacency.
+        for (String vertexName: vertexMapKeys) {
+            Vertex v = vertexMap.get(vertexName);
+            for (Vertex w: v.getAdj()) {
+                w.increaseIndegree();
+            }
+        }
+    }
+
+
+    static public Graph createGraphFromFile(String fileName) {
+        Graph g = new Graph();
+        try {
+            FileReader fin = new FileReader(fileName);
+            BufferedReader graphFile = new BufferedReader(fin);
+
+            // Read the edges and insert
+            String line;
+            while ((line = graphFile.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(line);
+
+                try {
+                    if (st.countTokens() != 2)
+                        throw new Exception();
+                    String source = st.nextToken();
+                    String dest = st.nextToken();
+                    g.addEdge(source, dest);
+                } catch (Exception e) {
+                    System.err.println(e + " " + line);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        g.calculateIndegree();
+
+        return g;
+    }
+
+
+}
