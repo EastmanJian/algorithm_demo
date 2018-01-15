@@ -10,8 +10,6 @@ import static org.junit.Assert.*;
 public class TopSortTest {
     @Test
     public void testTopSort() throws Exception {
-        TopSort topSort = new TopSort();
-
         //import the graph from file
         String graphFileName = "algorithm/graph/topsort/topSortGraph.txt";
         Graph graph = Graph.createGraphFromFile(TopSort.class.getResource("/").getPath() + File.separator +

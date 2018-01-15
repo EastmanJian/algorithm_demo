@@ -8,6 +8,11 @@ public class Vertex {
     private int indegree = 0;         // Indegree of the Vertex
     private int sortNum = 0;           // the topological sorting number
 
+    public Vertex(String nm) {
+        name = nm;
+        adj = new LinkedList<>();
+    }
+
     public int getIndegree() {
         return indegree;
     }
@@ -32,11 +37,6 @@ public class Vertex {
         return adj;
     }
 
-
-    public Vertex(String nm) {
-        name = nm;
-        adj = new LinkedList<>();
-    }
 
     public int getSortNum() {
         return sortNum;

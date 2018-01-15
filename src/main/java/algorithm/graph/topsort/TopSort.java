@@ -33,8 +33,7 @@ public class TopSort {
          * Set the sort number for each zero indegree vertex.
          */
         v = q.poll();
-        while( v != null )
-        {
+        while( v != null ) {
             v.setSortNum(++counter); // Assign the sort number
             for (Vertex w: v.getAdj()) {
                 w.decreaseIndegree();

@@ -1,4 +1,4 @@
-package algorithm.graph.sortestpath;
+package algorithm.graph.shortestpath;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

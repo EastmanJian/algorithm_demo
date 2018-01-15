@@ -1,4 +1,4 @@
-package algorithm.graph.sortestpath;
+package algorithm.graph.shortestpath;
 
 import java.util.LinkedList;
 
