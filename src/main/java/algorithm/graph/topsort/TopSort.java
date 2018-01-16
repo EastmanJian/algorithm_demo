@@ -21,10 +21,7 @@ public class TopSort {
 
         //put initial vertices into the queue
         Map<String, Vertex> vertexMap = graph.getVertexMap();
-        Set<String> vertexMapKeys = vertexMap.keySet();
-        Vertex v;
-        for (String vertexName: vertexMapKeys) {
-            v = vertexMap.get(vertexName);
+        for (Vertex v: vertexMap.values()) {
             if (v.getIndegree()==0) q.offer(v);
         }
 
@@ -32,7 +29,7 @@ public class TopSort {
          * If the adjacent vertex's indegree is dropped to zero, add it into the queue.
          * Set the sort number for each zero indegree vertex.
          */
-        v = q.poll();
+        Vertex v = q.poll();
         while( v != null ) {
             v.setSortNum(++counter); // Assign the sort number
             for (Vertex w: v.getAdj()) {
@@ -45,7 +42,7 @@ public class TopSort {
         }
 
         //in case there are cycle path in the graph, the counter will not be equal to the number of vertices.
-        if( counter != vertexMapKeys.size() )
+        if( counter != vertexMap.size() )
             throw new CycleFoundException( );
 
     }

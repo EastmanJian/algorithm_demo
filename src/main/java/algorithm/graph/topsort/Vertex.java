@@ -45,4 +45,8 @@ public class Vertex {
     public void setSortNum(int sortNum) {
         this.sortNum = sortNum;
     }
+
+    public String toString() {
+        return name;
+    }
 }

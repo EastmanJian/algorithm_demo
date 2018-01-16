@@ -35,11 +35,8 @@ public class Graph {
     }
 
     public void printGraph() {
-        Set<String> vertexMapKeys = vertexMap.keySet();
-        Vertex v;
-        for (String vertexName: vertexMapKeys) {
-            v = vertexMap.get(vertexName);
-            System.out.print(vertexName + ": indegree=" + v.getIndegree() + ", sortNum=" + v.getSortNum() + ", adjacency=");
+        for (Vertex v: vertexMap.values()) {
+            System.out.print(v + ": indegree=" + v.getIndegree() + ", sortNum=" + v.getSortNum() + ", adjacency=");
             for (Vertex w: v.getAdj()) {
                 System.out.print(w.getName() + " ");
             }
@@ -48,13 +45,11 @@ public class Graph {
     }
 
     public void calculateIndegree() {
-        Set<String> vertexMapKeys = vertexMap.keySet();
         //reset all indegree to zero
-        for (String vertexName: vertexMapKeys)
-            vertexMap.get(vertexName).setIndegree(0);
+        for (Vertex v: vertexMap.values())
+            v.setIndegree(0);
         //calculate the indegree for each vertex by its adjacency.
-        for (String vertexName: vertexMapKeys) {
-            Vertex v = vertexMap.get(vertexName);
+        for (Vertex v: vertexMap.values()) {
             for (Vertex w: v.getAdj()) {
                 w.increaseIndegree();
             }

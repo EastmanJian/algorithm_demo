@@ -7,7 +7,7 @@ import static algorithm.graph.shortestpath.unweighted.Graph.INFINITY;
 public class UnweightedShortestPath {
     /**
      * Find the shortest path from a start vertex to all vertices in the graph.
-     * Using a breadth first algorithm, from the start vertex s, calculate its adjacency distance and path,
+     * Using a breadth-first algorithm, from the start vertex s, calculate its adjacency distance and path,
      * then put the adjacency into a queue. Remove the handled vertex from the queue.
      * @param graph - the target graph
      * @param s - the start vertex

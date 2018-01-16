@@ -18,8 +18,14 @@ public class UnweightedShortestPathTest {
         graph.printGraph();
 
         UnweightedShortestPath.findPath(graph, graph.getVertex("v3"));
-        System.out.println("===================Graph after unweighted shortest path found====================");
+        System.out.println("===================Graph after unweighted shortest path found (start from v3)====================");
         graph.printGraph();
+
+        System.out.println("===================Print the shortest path from v3 to v5 and v7====================");
+        graph.printPath(graph.getVertex("v5"));
+        System.out.println();
+        graph.printPath(graph.getVertex("v7"));
+        System.out.println();
     }
 
 
@@ -36,6 +42,10 @@ public class UnweightedShortestPathTest {
         UnweightedShortestPath.findPath(graph, graph.getVertex("v9"));
         System.out.println("===================Graph after unweighted shortest path found====================");
         graph.printGraph();
+
+        System.out.println("===================Print the path from v9 to v1====================");
+        graph.printPath(graph.getVertex("v1"));
+        System.out.println();
     }
 
 }
