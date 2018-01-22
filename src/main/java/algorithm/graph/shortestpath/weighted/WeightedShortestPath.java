@@ -9,8 +9,9 @@ public class WeightedShortestPath {
      * Dijkstra's algorithm to find the shortest path from s to all vertices in the graph. It picks the unvisited vertex
      * with the lowest distance, calculates the distance through it to each unvisited neighbor, and updates the
      * neighbor's distance if smaller. Mark visited when done with neighbors.
-     * @param graph
-     * @param s
+     * The graph can be cyclic.
+     * @param graph - the graph
+     * @param s - the start vertex
      */
     static public void dijkstra (Graph graph, Vertex s) {
         //define a priority queue to store the vertex being searched, sorted by distance
