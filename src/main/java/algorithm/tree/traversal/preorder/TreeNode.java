@@ -2,9 +2,9 @@ package algorithm.tree.traversal.preorder;
 
 class TreeNode {
     private String nodeName;
-    private int depth;
     private TreeNode firstChild;
     private TreeNode nextSibling;
+    private int depth;
 
     public TreeNode (String nodeName, int depth) {
         this.nodeName = nodeName;

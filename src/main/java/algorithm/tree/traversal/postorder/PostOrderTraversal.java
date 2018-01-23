@@ -1,5 +1,8 @@
 package algorithm.tree.traversal.postorder;
 
+/**
+ * Calculate the total size of the tree using a postorder traversal algorithm
+ */
 public class PostOrderTraversal {
     private Tree tree;
     public PostOrderTraversal (Tree tree) {

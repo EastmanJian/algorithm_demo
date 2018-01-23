@@ -28,7 +28,7 @@ public class Tree {
     }
 
     /**
-     * print tree with prefix lines with preorder traversal
+     * print tree with prefix lines with preorder traversal algorithm
      */
     public void printTree() {
         printTree(root);
@@ -66,7 +66,6 @@ public class Tree {
     private static ArrayList<TreeNode> nodes = new ArrayList<>();
     public static Tree createTreeFromFile(String fileName) {
         //read each line of the file into a TreeNode and add it to an ArrayList
-
         try {
             FileReader fin = new FileReader(fileName);
             BufferedReader treeFile = new BufferedReader(fin);
@@ -93,6 +92,7 @@ public class Tree {
             e.printStackTrace();
         }
 
+        //recursively read the nodes into a tree
         TreeNode r = nodes.get(0);
         Tree tree = new Tree(r);
         lineIndex = 1;
