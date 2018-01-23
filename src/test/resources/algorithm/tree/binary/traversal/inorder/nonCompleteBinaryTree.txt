@@ -1,0 +1,19 @@
+Root
+    binary
+        (null)
+        tree
+            is
+            a
+    tree
+        witch
+            no
+                node
+                (null)
+            can
+        have
+            more
+                than
+                    two
+                    children
+                (null)
+            (null)

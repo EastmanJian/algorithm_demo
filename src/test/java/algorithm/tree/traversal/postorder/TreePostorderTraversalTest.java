@@ -13,7 +13,7 @@ public class TreePostorderTraversalTest {
         Tree tree = Tree.createTreeFromFile(Tree.class.getResource("/").getPath() + File.separator +  treeFileName);
         tree.printTree();
 
-        new PostOrderTraversal(tree).size(tree.getRoot());
+        System.out.println("The total size of the tree is " + new PostOrderTraversal(tree).size(tree.getRoot()));
     }
 
 }
