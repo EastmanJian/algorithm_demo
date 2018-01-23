@@ -58,6 +58,7 @@ public class Tree {
     /**
      * Create the tree by reading a file. Each line with indent in the file represents a tree node.
      * Every 4 spaces indent represent a level of depth of the tree.
+     * There is a size field after the node name. It will be also read.
      *
      * @param fileName - the file represent the tree
      * @return - the tree

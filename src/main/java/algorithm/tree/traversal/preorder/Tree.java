@@ -81,7 +81,7 @@ public class Tree {
                 try {
                     String nodeName = st.nextToken();
                     nodes.add(new TreeNode(nodeName, depth));
-                    System.out.println(nodeName + ":" + depth);
+                    //System.out.println(nodeName + ":" + depth);
                 } catch (Exception e) {
                     System.err.println(e + " " + line);
                     e.printStackTrace();
