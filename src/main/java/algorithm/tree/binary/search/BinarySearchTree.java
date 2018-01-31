@@ -146,7 +146,8 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
     }
 
     /**
-     * Internal method to print the tree
+     * Internal method to print the tree.
+     * Using a preorder traversal algorithm.
      *
      * @param node the root node of the tree to print
      * @param prefix drawing the edges for printing the tree
