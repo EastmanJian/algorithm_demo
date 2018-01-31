@@ -25,11 +25,11 @@ public class BinaryTree {
         printTree(root);
     }
 
-    public void printTree(BinaryNode node) {
+    private void printTree(BinaryNode node) {
         printTree(node, "", NODE_TYPE_ROOT);
     }
 
-    public void printTree(BinaryNode node, String prefix, String type) {
+    private void printTree(BinaryNode node, String prefix, String type) {
         System.out.println(prefix + type + node);
         BinaryNode leftChild = node.getLeftChild();
         BinaryNode rightChild = node.getRightChild();
