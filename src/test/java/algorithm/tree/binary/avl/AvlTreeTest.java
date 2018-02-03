@@ -16,4 +16,15 @@ public class AvlTreeTest {
         }
     }
 
+
+    @Test
+    public void inorderTraversal() throws Exception {
+        AvlTree<Integer> tree = new AvlTree<>();
+        Integer[] data = {3, 2, 1, 4, 5, 6, 7, 16, 15, 14, 13, 12, 11, 10, 8, 9};
+        for (int i = 0; i < data.length; i++) {
+            tree.insert(data[i]);
+        }
+        tree.inorderTraversal();
+        System.out.println();
+    }
 }

@@ -46,6 +46,10 @@ public class AvlTree<T extends Comparable<? super T>> {
         printTree(root, "", NODE_TYPE_ROOT);
     }
 
+    public void inorderTraversal() {
+        inorder(root);
+    }
+
     /**
      * Return the height of node t, or -1, if null.
      */
@@ -254,4 +258,15 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
+    /**
+     * Inorder traversal
+     * @param node
+     */
+    private void inorder(AvlNode node) {
+        if (node != null) {
+            inorder(node.left);
+            System.out.print(node + " ");
+            inorder(node.right);
+        }
+    }
 }

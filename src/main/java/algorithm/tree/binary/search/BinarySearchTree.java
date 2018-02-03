@@ -46,7 +46,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         printTree(root, "", NODE_TYPE_ROOT);
     }
 
-
+    public int height() {
+        return height(root);
+    }
 
     /**
      * Internal method to find an item in a subtree.
@@ -149,9 +151,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
      * Internal method to print the tree.
      * Using a preorder traversal algorithm.
      *
-     * @param node the root node of the tree to print
+     * @param node   the root node of the tree to print
      * @param prefix drawing the edges for printing the tree
-     * @param type the type description of the node
+     * @param type   the type description of the node
      */
     private void printTree(BinaryNode node, String prefix, String type) {
         System.out.println(prefix + type + node);
@@ -171,6 +173,19 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         } else if (leftChild != null && rightChild == null) {
             System.out.println(prefix + newPrefix + NODE_TYPE_RIGHT + NODE_NULL);
         }
+    }
+
+    /**
+     * Internal method to compute height of a subtree.
+     * Using a postorder traversal algorithm.
+     *
+     * @param t the node that roots the subtree.
+     */
+    private int height(BinaryNode<T> t) {
+        if (t == null)
+            return -1;
+        else
+            return 1 + Math.max(height(t.left), height(t.right));
     }
 
 }

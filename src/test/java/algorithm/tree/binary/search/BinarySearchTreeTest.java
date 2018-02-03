@@ -58,4 +58,16 @@ public class BinarySearchTreeTest {
         tree.printTree();
     }
 
+    @Test
+    public void height() throws Exception {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        //randomly insert data into the tree
+        for (int i = 0; i < 30; i++) {
+            tree.insert((int) (Math.random() * 5000));
+        }
+        tree.printTree();
+        System.out.println("The height of the tree is " + tree.height());
+    }
+
+
 }
