@@ -1,4 +1,4 @@
-package algorithm.graph.spanningtree;
+package algorithm.graph.spanningtree.prim;
 
 import java.util.Comparator;
 

@@ -1,16 +1,14 @@
-package algorithm.graph.spanningtree;
+package algorithm.graph.spanningtree.prim;
 
 import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
-
 public class PrimTest {
     @Test
     public void prim() throws Exception {
         //import the graph from file
-        String graphFileName = "algorithm/graph/spanningtree/graphSpanningTree.txt";
+        String graphFileName = "algorithm/graph/spanningtree/prim/graphSpanningTree.txt";
         Graph graph = Graph.createGraphFromFile(Prim.class.getResource("/").getPath() + File.separator +
                 graphFileName);
 

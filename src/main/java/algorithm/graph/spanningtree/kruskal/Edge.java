@@ -1,16 +1,26 @@
-package algorithm.graph.spanningtree;
+package algorithm.graph.spanningtree.kruskal;
 
 
 /**
- * A weighted edge start from the owning Vertex to its adjacent Vertex (adj).
+ * A weighted edge start from the source Vertex to its adjacent Vertex (adj).
  */
-public class OutEdge {
+public class Edge {
+    private Vertex src;
     private Vertex adj;
     private int weight;
 
-    public OutEdge(Vertex adj, int weight) {
+    public Edge(Vertex src, Vertex adj, int weight) {
+        this.src = src;
         this.adj = adj;
         this.weight = weight;
+    }
+
+    public Vertex getSrc() {
+        return src;
+    }
+
+    public void setSrc(Vertex src) {
+        this.src = src;
     }
 
     public Vertex getAdj() {

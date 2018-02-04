@@ -1,8 +1,10 @@
-package algorithm.graph.spanningtree;
+package algorithm.graph.spanningtree.kruskal;
 
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
@@ -22,7 +24,7 @@ public class Graph {
     public void addEdge(String sourceName, String destName, int weight) {
         Vertex v = getVertex(sourceName);
         Vertex w = getVertex(destName);
-        OutEdge outEdge = new OutEdge(w, weight);
+        Edge outEdge = new Edge(v, w, weight);
         v.getOutEdges().add(outEdge);
     }
 
@@ -38,29 +40,23 @@ public class Graph {
         return v;
     }
 
+    public List<Edge> getEdges () {
+        List<Edge> edges = new ArrayList<>();
+        for(Vertex v: vertexMap.values()) {
+            for (Edge e: v.getOutEdges()) {
+                edges.add(e);
+            }
+        }
+        return edges;
+    }
+
     public void printGraph() {
         for (Vertex v: vertexMap.values()) {
-            System.out.print(v + ": distance=" + v.getDist() + ", path(prior Vertex)=" + v.getPath()
-                    + ", known=" + v.isKnown() + ", adjacency=");
-            for (OutEdge e: v.getOutEdges()) {
+            System.out.print(v + ", adjacency=");
+            for (Edge e: v.getOutEdges()) {
                 System.out.print(e + " ");
             }
             System.out.println();
-        }
-    }
-
-    /**
-     * Use a recursive method to print the path from the start vertex to the toVertex, by using the
-     * prior Vertex (Vertex.path) in the path.
-     * @param toVertex
-     */
-    public void printPath(Vertex toVertex) {
-        Vertex prior = toVertex.getPath();
-        if (prior != null) {
-            printPath(prior);
-            System.out.print(" -> " + toVertex);
-        } else {
-            System.out.print(toVertex);
         }
     }
 
