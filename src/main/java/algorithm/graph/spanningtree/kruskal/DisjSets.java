@@ -15,7 +15,7 @@ public class DisjSets<T> {
     /**
      * Construct the disjoint sets object.
      *
-     * @param elements the disjoint sets.
+     * @param elements of the disjoint sets.
      */
     public DisjSets(Collection<T> elements) {
         s = new HashMap<>();
@@ -38,7 +38,7 @@ public class DisjSets<T> {
     }
 
     /**
-     * Perform a find.
+     * Find which set does an element belongs to.
      * Error checks omitted again for simplicity.
      *
      * @param e the element being searched for.
