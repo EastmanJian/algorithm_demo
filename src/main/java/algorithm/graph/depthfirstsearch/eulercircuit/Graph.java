@@ -1,4 +1,4 @@
-package algorithm.graph.spanningtree.kruskal;
+package algorithm.graph.depthfirstsearch.eulercircuit;
 
 
 import java.io.BufferedReader;
@@ -21,11 +21,11 @@ public class Graph {
         return vertexMap;
     }
 
-    public void addEdge(String sourceName, String destName, int weight) {
-        Vertex v = getVertex(sourceName);
-        Vertex w = getVertex(destName);
+    public void addEdge(String srcVertexName, String destVertexName, int weight) {
+        Vertex v = getVertex(srcVertexName);
+        Vertex w = getVertex(destVertexName);
         Edge outEdge = new Edge(v, w, weight);
-        v.getOutEdges().add(outEdge);
+        v.getOutEdges().put(w, outEdge);
     }
 
 
@@ -43,18 +43,38 @@ public class Graph {
     public List<Edge> getEdges () {
         List<Edge> edges = new ArrayList<>();
         for(Vertex v: vertexMap.values()) {
-            for (Edge e: v.getOutEdges()) {
+            for (Edge e: v.getOutEdges().values()) {
                 edges.add(e);
             }
         }
         return edges;
     }
 
+    public Edge getEdge (String srcVertexName, String destVertexName) {
+        Vertex srcVertex = getVertex(srcVertexName);
+        Vertex destVertex = getVertex(destVertexName);
+        return srcVertex.getOutEdges().get(destVertex);
+    }
+
+    public Edge removeEdge (String srcVertexName, String destVertexName) {
+        Vertex srcVertex = getVertex(srcVertexName);
+        Vertex destVertex = getVertex(destVertexName);
+        return removeEdge(srcVertex, destVertex);
+    }
+
+    public Edge removeEdge (Vertex srcVertex, Vertex destVertex) {
+        return srcVertex.getOutEdges().remove(destVertex);
+    }
+
+    public Edge removeEdge (Edge e) {
+        return removeEdge (e.getSrc(), e.getAdj());
+    }
+
     public void printGraph() {
         for (Vertex v: vertexMap.values()) {
             System.out.print(v + ", adjacency=");
-            for (Edge e: v.getOutEdges()) {
-                System.out.print(e + " ");
+            for (Edge e: v.getOutEdges().values()) {
+                System.out.print(e.getAdj() + " ");
             }
             System.out.println();
         }
@@ -78,11 +98,11 @@ public class Graph {
                 StringTokenizer st = new StringTokenizer(line);
 
                 try {
-                    if (st.countTokens() != 3)
+                    if (st.countTokens() != 2)
                         throw new Exception();
                     String source = st.nextToken();
                     String dest = st.nextToken();
-                    int weight = Integer.parseInt(st.nextToken());
+                    int weight = 1;
                     g.addEdge(source, dest, weight);
                 } catch (Exception e) {
                     System.err.println(e + " " + line);
