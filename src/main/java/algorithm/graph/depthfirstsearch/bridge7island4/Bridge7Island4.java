@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Bridge7Island4 {
 
     /**
-     * Find all possible paths starting from each vertex (island)
+     * Find all possible paths starting from each vertex (island) using a depth-first search algorithm.
      * @param g
      */
     public static void findAllPaths(Graph g) {
