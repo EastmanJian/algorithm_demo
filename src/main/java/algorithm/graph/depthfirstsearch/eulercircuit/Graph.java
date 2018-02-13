@@ -81,8 +81,7 @@ public class Graph {
     }
 
     /**
-     * Create the graph by reading a file. Each line in the file represent an edge by two vertices and a cost, separated
-     * by space.
+     * Create the graph by reading a file. Each line in the file represent an edge by two vertices, separated by space.
      * @param fileName - the file represent the graph
      * @return - the graph
      */
