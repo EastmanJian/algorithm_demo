@@ -1,0 +1,14 @@
+A B bridge3
+A C bridge1
+A C bridge2 
+A D bridge5
+A D bridge6
+B A bridge3
+B C bridge4
+B D bridge7
+C A bridge1
+C A bridge2
+C B bridge4
+D A bridge5
+D A bridge6
+D B bridge7

@@ -1,13 +1,11 @@
-package algorithm.graph.depthfirstsearch.eulercircuit;
+package algorithm.graph.depthfirstsearch.bridge7island4;
 
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Vertex {
     private String name;                    // Vertex name
-    private Map<Vertex, Edge> outEdges;   // out edges
+    private Map<String, Edge> outEdges;   //  out edges
 
     public Vertex(String nm) {
         name = nm;
@@ -18,7 +16,7 @@ public class Vertex {
         return name;
     }
 
-    public Map<Vertex,Edge> getOutEdges() {
+    public Map<String,Edge> getOutEdges() {
         return outEdges;
     }
 
