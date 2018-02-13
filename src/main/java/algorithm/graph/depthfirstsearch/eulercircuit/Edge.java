@@ -7,12 +7,10 @@ package algorithm.graph.depthfirstsearch.eulercircuit;
 public class Edge {
     private Vertex src;
     private Vertex adj;
-    private int weight;
 
-    public Edge(Vertex src, Vertex adj, int weight) {
+    public Edge(Vertex src, Vertex adj) {
         this.src = src;
         this.adj = adj;
-        this.weight = weight;
     }
 
     public Vertex getSrc() {
@@ -29,14 +27,6 @@ public class Edge {
 
     public void setAdj(Vertex adj) {
         this.adj = adj;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
     public String toString() {

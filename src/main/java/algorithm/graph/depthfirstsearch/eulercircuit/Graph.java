@@ -21,10 +21,10 @@ public class Graph {
         return vertexMap;
     }
 
-    public void addEdge(String srcVertexName, String destVertexName, int weight) {
+    public void addEdge(String srcVertexName, String destVertexName) {
         Vertex v = getVertex(srcVertexName);
         Vertex w = getVertex(destVertexName);
-        Edge outEdge = new Edge(v, w, weight);
+        Edge outEdge = new Edge(v, w);
         v.getOutEdges().put(w, outEdge);
     }
 
@@ -102,8 +102,7 @@ public class Graph {
                         throw new Exception();
                     String source = st.nextToken();
                     String dest = st.nextToken();
-                    int weight = 1;
-                    g.addEdge(source, dest, weight);
+                    g.addEdge(source, dest);
                 } catch (Exception e) {
                     System.err.println(e + " " + line);
                 }
