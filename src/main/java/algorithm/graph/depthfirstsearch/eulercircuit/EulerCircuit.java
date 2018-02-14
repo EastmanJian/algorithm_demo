@@ -3,7 +3,10 @@ package algorithm.graph.depthfirstsearch.eulercircuit;
 import java.util.LinkedList;
 
 /**
- * Euler Circuit Implementation 
+ * Euler Circuit Algorithm
+ *  1. find the initial cycle from the starting vertex in the graph
+ *  2. for other unvisited edges, find adjacent cycles and slice into the initial cycle one by one until all edges are
+ *  visited.
  */
 public class EulerCircuit {
     /**

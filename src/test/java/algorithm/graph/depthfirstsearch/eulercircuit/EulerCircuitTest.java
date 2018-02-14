@@ -25,8 +25,6 @@ public class EulerCircuitTest {
 
         System.out.println("==============Graph after Euler Circuit is found==============");
         graph.printGraph();
-
-
     }
 
 }
