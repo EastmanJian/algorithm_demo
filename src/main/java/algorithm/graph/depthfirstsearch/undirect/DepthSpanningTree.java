@@ -2,7 +2,7 @@ package algorithm.graph.depthfirstsearch.undirect;
 
 public class DepthSpanningTree {
     /**
-     * Depth First Search Algorithm.
+     * Depth First Search Algorithm for undirected graph.
      * It's a preorder traversal algorithm.
      * Mark the vertices preorder numbers, and generate a depth spanning tree with tree edges and back edges
      * @param v the begin vertex

@@ -17,8 +17,6 @@ public class DepthSpanningTreeTest {
 
         System.out.println("=====Depth First Search and Spanning Tree=====");
         DepthSpanningTree.depthFirstSearch(graph.getVertex("A"));
-
-
     }
 
 }

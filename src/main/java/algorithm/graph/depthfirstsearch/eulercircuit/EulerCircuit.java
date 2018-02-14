@@ -47,7 +47,7 @@ public class EulerCircuit {
     private static boolean isCycled; //a flag to indicate the depth-first search is back to the start vertex
 
     /**
-     * Depth-first search algorithm to find a loop (cycled path) from the start vertex
+     * Depth-first search algorithm to find a cycle from the start vertex
      * @param g - the graph
      * @param s - the start vertex
      */
