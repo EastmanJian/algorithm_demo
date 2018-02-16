@@ -77,8 +77,26 @@ public class SeparateChainingHashTable<T> {
         currentSize = 0;
     }
 
+    /**
+     * Rehashing for separate chaining hash table.
+     */
+    private void rehash() {
+        List<T>[] oldLists = theLists;
 
-    private void rehash() { /* todo */ }
+        System.out.print("Debug: rehash, theLists.length resize from " + theLists.length);
+
+        // Create new double-sized, empty table
+        theLists = new List[nextPrime(2 * theLists.length)];
+        for (int j = 0; j < theLists.length; j++)
+            theLists[j] = new LinkedList<>();
+        System.out.println(" to " + theLists.length + ".");
+
+        // Copy table over
+        currentSize = 0;
+        for (int i = 0; i < oldLists.length; i++)
+            for (T item : oldLists[i])
+                insert(item);
+    }
 
     private int myhash(T x) {
         int hashVal = x.hashCode();
@@ -91,13 +109,13 @@ public class SeparateChainingHashTable<T> {
     }
 
     private static int nextPrime(int n) {
-        BigInteger bi = BigInteger.valueOf((long)n);
+        BigInteger bi = BigInteger.valueOf((long) n);
         return bi.nextProbablePrime().intValue();
     }
 
     public void printDataStructure() {
-        for (int i=0; i<theLists.length; i++) {
-            System.out.print("theLists[" + i +"]" );
+        for (int i = 0; i < theLists.length; i++) {
+            System.out.print("theLists[" + i + "]");
             for (T element : theLists[i]) {
                 System.out.print(" --> " + element);
             }
