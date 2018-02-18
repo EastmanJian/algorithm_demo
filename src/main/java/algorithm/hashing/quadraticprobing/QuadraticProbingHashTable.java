@@ -162,6 +162,11 @@ public class QuadraticProbingHashTable<T> {
                 insert(oldArray[i].element);
     }
 
+    /**
+     * Scale the hash code into a suitable array index
+     * @param x
+     * @return
+     */
     private int myhash(T x) {
         int hashVal = x.hashCode();
 

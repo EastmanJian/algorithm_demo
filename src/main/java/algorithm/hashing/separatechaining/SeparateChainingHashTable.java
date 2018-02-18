@@ -98,6 +98,11 @@ public class SeparateChainingHashTable<T> {
                 insert(item);
     }
 
+    /**
+     * Scale the hash code into a suitable array index
+     * @param x
+     * @return
+     */
     private int myhash(T x) {
         int hashVal = x.hashCode();
 
