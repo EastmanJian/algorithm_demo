@@ -24,6 +24,4 @@ public class Hanoi {
     public void move(char origin, char destination) {
         System.out.println("Move a disk from rod " + origin + " to rod " + destination + ".");
     }
-
-
 }
