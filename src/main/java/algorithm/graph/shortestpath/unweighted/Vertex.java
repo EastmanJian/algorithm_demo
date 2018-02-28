@@ -1,6 +1,7 @@
 package algorithm.graph.shortestpath.unweighted;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import static algorithm.graph.shortestpath.unweighted.Graph.INFINITY;
 
@@ -19,7 +20,7 @@ public class Vertex {
         return name;
     }
 
-    public LinkedList<Vertex> getAdj() {
+    public List<Vertex> getAdj() {
         return adj;
     }
 
