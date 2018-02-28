@@ -80,6 +80,38 @@ public class PathFinderAStarTest {
         graph.printGraph(ORIGIN);
 
         System.out.println("=====Search path from start point " + from + " to destination point " + to + "=====");
+        PathFinderAStar.setDebug(true); //set debug to true to see the traversal steps.
+        PathFinderAStar.findPath(graph, from, to);
+        System.out.println("=====Distance Graph=====");
+        graph.printGraph(DISTANCE);
+        System.out.println("=====Priority Graph=====");
+        graph.printGraph(PRIORITY);
+        System.out.println("=====Target Path=====");
+        graph.getPath(to);
+        graph.printGraph(SINGLE_PATH);
+        System.out.println("=====Path Graph=====");
+        graph.printGraph(ALL_PATH);
+        System.out.println("=====Visit Count Graph=====");
+        graph.printGraph(VISIT_CNT);
+    }
+
+    @Test
+    public void findPathMaze1() throws Exception {
+        //import the graph from file
+        String graphFileName = "algorithm/graph/pathfinding/grid/maze1.txt";
+        Graph graph = Graph.createGraphFromFile(PathFinderAStar.class.getResource("/").getPath() +
+                File.separator + graphFileName);
+        graph.setAllowDiagonal(true);
+
+        Grid from = graph.getGrid(32, 22);
+        Grid to = graph.getGrid(7, 0);
+        from.setFlag(START);
+        to.setFlag(DESTINATION);
+
+        System.out.println("=====Graph before shortest path found=====");
+        graph.printGraph(ORIGIN);
+
+        System.out.println("=====Search path from start point " + from + " to destination point " + to + "=====");
         PathFinderAStar.setDebug(false); //set debug to true to see the traversal steps.
         PathFinderAStar.findPath(graph, from, to);
         System.out.println("=====Distance Graph=====");
@@ -93,6 +125,6 @@ public class PathFinderAStarTest {
         graph.printGraph(ALL_PATH);
         System.out.println("=====Visit Count Graph=====");
         graph.printGraph(VISIT_CNT);
-
     }
+
 }
