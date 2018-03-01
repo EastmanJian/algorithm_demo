@@ -56,9 +56,9 @@ public class HanoiVisual extends Hanoi {
     }
 
     public void printRods() {
-        for (int level = n; level > 0; level--) {
-            System.out.println(visualLevel(origin, level) + " | "
-                    + visualLevel(assist, level) + " | "
+        for (int level = n + 1; level > 0; level--) {
+            System.out.println(visualLevel(origin, level) + "  "
+                    + visualLevel(assist, level) + "  "
                     + visualLevel(destination, level));
         }
     }
@@ -69,17 +69,18 @@ public class HanoiVisual extends Hanoi {
         int height = rods.get(rodName).size();
         if (lev > height) {
             StringBuilder sb = new StringBuilder();
-            sb.setLength(n * 2);
-            result = sb.toString().replace("\u0000", " ");
+            sb.setLength(n);
+            sb.toString().replace("\u0000", " ");
+            result = sb + "|" + sb;
         } else {
             int diskSize = rods.get(rodName).get(lev - 1);
             StringBuilder spaces = new StringBuilder();
             spaces.setLength(n - diskSize);
             String span = spaces.toString().replace("\u0000", " ");
             StringBuilder disk = new StringBuilder();
-            disk.setLength(diskSize * 2);
+            disk.setLength(diskSize);
             String diskView = disk.toString().replace("\u0000", "*");
-            result = span + diskView + span;
+            result = span + diskView + "$" + diskView + span;
         }
         return result;
     }
